@@ -32,6 +32,14 @@ body {
     cursor: pointer;
 }
 
+.name input, .email input, .password input, .finish input {
+    background: none;
+    border: none;
+    flex: 1;
+    height: 100%;
+    outline: none;
+}
+
 div.innactive {
     opacity: 0;
     pointer-events: none;
