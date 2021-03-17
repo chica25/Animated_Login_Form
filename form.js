@@ -4,16 +4,18 @@ function animatedForm() {
     arrows.forEach(arrow => {
         arrow.addEventListener('click', () => {
             const input = arrow.previousElementSibling;
-            console.log(input);
+            // console.log(input);
             const parent = arrow.parentElement;
             const nextForm = parent.nextElementSibling;
 
             if(input.type === 'text' && validateUser(input)) {
-                nextForm(parent, nextForm)
+                nextSlide(parent, nextForm)
+            } else if(input.type === 'email' && validateEmail(input)){
+
             }
        
         })
-    })
+    });
 }
 
 function validateUser(user){
@@ -25,11 +27,22 @@ function validateUser(user){
     }
 }
 
-function nextForm(parent, nextForm) {
-    parent.classList.add('innactive')
-    parent.classList.remove('active')
-    nextForm.classList.add('active')
+function validateEmail(email) {
+    const validation = /^[^\s@[^\s@]+\.[^\s@]+$/;
+    if(validation.test(email.value)){
+        return true;
+    } else {
+        error('rgba(87,189,130');
+
+    }
 }
+
+function nextSlide(parent, nextForm){
+        parent.classList.add('innactive')
+        parent.classList.remove('active')
+        nextForm.classList.add('active')
+    }
+
 
 function error(color) {
     document.body.style.backgroundColor = color;
